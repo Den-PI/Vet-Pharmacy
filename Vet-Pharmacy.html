@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ветеринарна аптека на Галя</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+        }
+        
+        header {
+            background-color: #0a4275;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #a3c6f0;
+        }
+        
+        main {
+            margin-top: 5rem;
+            padding: 2rem 0;
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 3rem 0;
+            background-color: white;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            color: #0a4275;
+            margin-bottom: 0.5rem;
+        }
+        
+        .hero h2 {
+            font-size: 1.8rem;
+            color: #0a4275;
+            margin-bottom: 2rem;
+        }
+        
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #0a4275;
+            margin-bottom: 2rem;
+        }
+        
+        .bio {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        .section-title {
+            text-align: center;
+            color: #0a4275;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .gallery-item {
+            height: 250px;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+        
+        .products {
+            background-color: white;
+        }
+        
+        .product-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .product-category {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 5px;
+            background-color: #f0f6ff;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .product-category:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-category img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+        
+        .product-category h3 {
+            color: #0a4275;
+            margin-bottom: 1rem;
+        }
+        
+        .medicine-products {
+            margin-top: 4rem;
+            text-align: center;
+            padding: 2rem;
+            border-radius: 5px;
+            background-color: #f0f6ff;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .medicine-products img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonials {
+            background-color: #f0f6ff;
+        }
+        
+        .testimonial-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-card .client-name {
+            font-weight: bold;
+            color: #0a4275;
+        }
+        
+        .contact {
+            background-color: white;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+        
+        .contact-item {
+            text-align: center;
+        }
+        
+        .contact-item i {
+            font-size: 2rem;
+            color: #0a4275;
+            margin-bottom: 1rem;
+        }
+        
+        .map {
+            height: 400px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        footer {
+            background-color: #0a4275;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-left: 2rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Ветеринарна аптека на Галя</div>
+                <ul class="nav-links">
+                    <li><a href="#hero">Начало</a></li>
+                    <li><a href="#gallery">Галерия</a></li>
+                    <li><a href="#products">Продукти</a></li>
+                    <li><a href="#testimonials">Отзиви</a></li>
+                    <li><a href="#contact">Контакти</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="container">
+                <h1>Ветеринарната аптека</h1>
+                <h2>на</h2>
+                <h2>Галя</h2>
+                <img src="/api/placeholder/500/500" alt="Д-р Галя Тошкова" class="profile-img">
+                <div class="bio">
+                    <p>С над 30 години професионален опит в ветеринарната медицина, д-р Галя Тошкова предлага експертна грижа и внимание към всеки домашен любимец. Нейната всеотдайност и любов към животните са движещата сила в работата ѝ.</p>
+                    <p>В нашата аптека ще намерите индивидуален подход и персонални решения за всеки клиент. Благодарение на богатия си опит, д-р Тошкова предоставя професионални консултации и препоръки, съобразени с конкретните нужди на вашия домашен любимец.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery-section">
+            <div class="container">
+                <h2 class="section-title">Снимки от аптеката</h2>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/600/400" alt="Ветеринарна аптека - изглед отвън">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/600/400" alt="Интериор на аптеката">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/600/400" alt="Рафтове с продукти">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/600/400" alt="Консултационен кът">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="products" class="products">
+            <div class="container">
+                <h2 class="section-title">Продукти</h2>
+                
+                <h3 class="section-subtitle">Храни</h3>
+                <div class="product-categories">
+                    <div class="product-category">
+                        <img src="/api/placeholder/600/400" alt="Храна за кучета">
+                        <h3>За кучета</h3>
+                        <p>Предлагаме висококачествени храни за кучета от всички възрасти и породи. В нашия асортимент ще намерите както суха, така и консервирана храна, специализирани диетични формули и вкусни лакомства.</p>
+                    </div>
+                    <div class="product-category">
+                        <img src="/api/placeholder/600/400" alt="Храна за котки">
+                        <h3>За котки</h3>
+                        <p>Богат избор на балансирани храни за котки, съобразени с различните нужди и предпочитания. Предлагаме специализирани формули за котенца, възрастни и кастрирани котки, както и храни за специфични здравословни състояния.</p>
+                    </div>
+                    <div class="product-category">
+                        <img src="/api/placeholder/600/400" alt="Храна за птици">
+                        <h3>За птици</h3>
+                        <p>Пълноценни и балансирани храни за всички видове домашни птици. Нашият асортимент включва смески от различни семена, гранулирани храни, витамини и минерални добавки за оптимално здраве на вашите пернати приятели.</p>
+                    </div>
+                </div>
+
+                <div class="medicine-products">
+                    <h3>Лекарствени продукти и препарати</h3>
+                    <img src="/api/placeholder/800/400" alt="Лекарствени продукти">
+                    <p>В нашата аптека ще намерите богат асортимент от лекарствени продукти и препарати за превенция и лечение на различни здравословни проблеми при вашите домашни любимци. Предлагаме антипаразитни средства, витамини и минерали, хранителни добавки, средства за дентална хигиена, дерматологични препарати и много други.</p>
+                    <p>Всички продукти са внимателно подбрани и отговарят на най-високите стандарти за качество и безопасност. Нашият екип ще ви помогне да изберете най-подходящите продукти за вашия любимец и ще ви даде професионални съвети за тяхната употреба.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <h2 class="section-title">Препоръки и коментари</h2>
+                <div class="testimonial-cards">
+                    <div class="testimonial-card">
+                        <p>"Д-р Галя е истински професионалист! Благодарение на нейните съвети и грижи, моето куче се възстанови напълно от сериозно заболяване. Винаги получавам компетентна консултация и внимание."</p>
+                        <p class="client-name">- Мария Петрова</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Вече 5 години се доверявам на д-р Галя за грижата на моите котки. Високо качество на обслужване, богат избор от продукти и най-важното - експертни съвети, съобразени с конкретните нужди на моите любимци."</p>
+                        <p class="client-name">- Иван Димитров</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Аптеката на Галя е единственото място, където намирам всичко необходимо за моя папагал. Персоналът е изключително любезен и компетентен, винаги готов да помогне и да посъветва."</p>
+                        <p class="client-name">- Елена Николова</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Контакти</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>g.toshkova@gmail.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <h3>Телефон</h3>
+                        <p>+359 888 123 456</p>
+                    </div>
+                </div>
+                
+                <h2 class="section-title">Местоположение</h2>
+                <div class="map">
+                    <!-- Тук бихме интегрирали Google Maps, но в примера използваме placeholder -->
+                    <img src="/api/placeholder/1200/400" alt="Карта с местоположение" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Ветеринарна аптека на Галя</div>
+                <ul class="footer-links">
+                    <li><a href="#hero">Начало</a></li>
+                    <li><a href="#gallery">Галерия</a></li>
+                    <li><a href="#products">Продукти</a></li>
+                    <li><a href="#testimonials">Отзиви</a></li>
+                    <li><a href="#contact">Контакти</a></li>
+                </ul>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Ветеринарна аптека на Галя. Всички права запазени.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
