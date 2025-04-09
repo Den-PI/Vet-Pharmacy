@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ветеринарна аптека на Галя</title>
+    <title>Ветеринарна аптека</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Playfair Display', Georgia, serif;
+            font-family: 'Open Sans', Arial, sans-serif;
         }
         
         body {
@@ -41,7 +41,20 @@
             align-items: center;
         }
         
-        .logo {
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+            background-color: white;
+            border-radius: 5px;
+        }
+        
+        .logo-text {
             font-size: 1.5rem;
             font-weight: bold;
         }
@@ -94,8 +107,7 @@
         
         .profile-img {
             width: 250px;
-            height: 250px;
-            border-radius: 50%;
+            height: 350px;
             object-fit: cover;
             border: 5px solid #0a4275;
             margin-bottom: 2rem;
@@ -109,9 +121,10 @@
         
         .section-title {
             text-align: center;
-            color: #0a4275;
+            color: #062c4f;  /* Darker blue for section titles */
             margin-bottom: 3rem;
             font-size: 2rem;
+            font-weight: 600;
         }
         
         .gallery {
@@ -143,6 +156,13 @@
             background-color: white;
         }
         
+        .section-subtitle {
+            color: #062c4f;  /* Darker blue for subtitles */
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+        
         .product-categories {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -171,7 +191,7 @@
         }
         
         .product-category h3 {
-            color: #0a4275;
+            color: #062c4f;  /* Darker blue for product titles */
             margin-bottom: 1rem;
         }
         
@@ -182,6 +202,11 @@
             border-radius: 5px;
             background-color: #f0f6ff;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .medicine-products h3 {
+            color: #062c4f;  /* Darker blue for medicine products title */
+            margin-bottom: 1.5rem;
         }
         
         .medicine-products img {
@@ -215,7 +240,7 @@
         
         .testimonial-card .client-name {
             font-weight: bold;
-            color: #0a4275;
+            color: #062c4f;
         }
         
         .contact {
@@ -237,6 +262,11 @@
             font-size: 2rem;
             color: #0a4275;
             margin-bottom: 1rem;
+        }
+        
+        .contact-item h3 {
+            color: #062c4f;  /* Darker blue for contact titles */
+            margin-bottom: 0.5rem;
         }
         
         .map {
@@ -287,7 +317,10 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">Ветеринарна аптека на Галя</div>
+                <div class="logo-container">
+                    <img src="/api/placeholder/100/100" alt="Лого на ветеринарна аптека" class="logo-img">
+                    <div class="logo-text">Ветеринарна аптека</div>
+                </div>
                 <ul class="nav-links">
                     <li><a href="#hero">Начало</a></li>
                     <li><a href="#gallery">Галерия</a></li>
@@ -305,9 +338,9 @@
                 <h1>Ветеринарната аптека</h1>
                 <h2>на</h2>
                 <h2>Галя</h2>
-                <img src="/api/placeholder/500/500" alt="Д-р Галя Тошкова" class="profile-img">
+                <img src="/api/placeholder/350/500" alt="Д-р Галя Тошкова" class="profile-img">
                 <div class="bio">
-                    <p>С над 30 години професионален опит в ветеринарната медицина, д-р Галя Тошкова предлага експертна грижа и внимание към всеки домашен любимец. Нейната всеотдайност и любов към животните са движещата сила в работата ѝ.</p>
+                    <p>С над 30 години професионален опит в ветеринарната медицина, д-р Галина Тошкова предлага експертна грижа и внимание към всеки домашен любимец. Нейната всеотдайност и любов към животните са движещата сила в работата ѝ.</p>
                     <p>В нашата аптека ще намерите индивидуален подход и персонални решения за всеки клиент. Благодарение на богатия си опит, д-р Тошкова предоставя професионални консултации и препоръки, съобразени с конкретните нужди на вашия домашен любимец.</p>
                 </div>
             </div>
@@ -404,7 +437,7 @@
                 <h2 class="section-title">Местоположение</h2>
                 <div class="map">
                     <!-- Тук бихме интегрирали Google Maps, но в примера използваме placeholder -->
-                    <img src="/api/placeholder/1200/400" alt="Карта с местоположение" style="width:100%; height:100%; object-fit:cover;">
+                    <img src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1706.7509795371968!2d25.960645739811714!3d43.84166379727285!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40ae60bebea177b1%3A0x1fb13d4b0f17ea8a!2z0JLQtdGC0LXRgNC40L3QsNGA0L3QsCDQsNC_0YLQtdC60LA!5e1!3m2!1sen!2sbg!4v1744180055411!5m2!1sen!2sbg" width="300" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" alt="Карта с местоположение" style="width:100%; height:100%; object-fit:cover;">
                 </div>
             </div>
         </section>
