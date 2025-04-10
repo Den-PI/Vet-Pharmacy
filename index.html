@@ -77,6 +77,39 @@
         .nav-links a:hover {
             color: #a3c6f0;
         }
+
+        /* Mobile styles */
+        @media screen and (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                margin-top: 1rem;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 0.5rem 0;
+                font-size: 0.9rem;
+            }
+            
+            .logo-text {
+                font-size: 1.2rem;
+            }
+            
+            .logo-img {
+                width: 40px;
+                height: 40px;
+            }
+        }
         
         main {
             margin-top: 5rem;
@@ -321,7 +354,8 @@
                     <img src="images/vet.png" alt="Лого на ветеринарна аптека" class="logo-img">
                     <div class="logo-text">Ветеринарна аптека</div>
                 </div>
-                <ul class="nav-links">
+                <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
+                <ul class="nav-links" id="navLinks">
                     <li><a href="#hero">Начало</a></li>
                     <li><a href="#gallery">Галерия</a></li>
                     <li><a href="#products">Продукти</a></li>
