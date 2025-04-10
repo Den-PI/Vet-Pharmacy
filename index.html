@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ветеринарна аптека</title>
     <style>
-        * {
+      * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -39,6 +39,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
         
         .logo-container {
@@ -59,6 +60,15 @@
             font-weight: bold;
         }
         
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
         .nav-links {
             display: flex;
             list-style: none;
@@ -77,7 +87,7 @@
         .nav-links a:hover {
             color: #a3c6f0;
         }
-
+        
         /* Mobile styles */
         @media screen and (max-width: 768px) {
             .menu-toggle {
@@ -287,6 +297,15 @@
             margin-bottom: 3rem;
         }
         
+        /* Responsive contact info */
+        @media screen and (max-width: 600px) {
+            .contact-info {
+                flex-direction: column;
+                gap: 2rem;
+                align-items: center;
+            }
+        }
+        
         .contact-item {
             text-align: center;
         }
@@ -319,20 +338,24 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
         
         .footer-logo {
             font-weight: bold;
             font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
         
         .footer-links {
             display: flex;
             list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         
         .footer-links li {
-            margin-left: 2rem;
+            margin: 0.5rem 1rem;
         }
         
         .footer-links a {
@@ -343,6 +366,42 @@
         .copyright {
             margin-top: 2rem;
             opacity: 0.8;
+            width: 100%;
+        }
+        
+        /* More responsive adjustments */
+        @media screen and (max-width: 768px) {
+            .section-title {
+                font-size: 1.7rem;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .product-categories {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonial-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .footer-links {
+                margin-top: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -417,7 +476,7 @@
                         <p>Богат избор на балансирани храни за котки, съобразени с различните нужди и предпочитания. Предлагаме специализирани формули за котенца, възрастни и кастрирани котки, както и храни за специфични здравословни състояния.</p>
                     </div>
                     <div class="product-category">
-                        <img src="/Vet-Pharmacy/images/bird_food.png" alt="Храна за птици">
+                        <img src="/Vet-Pharmacy/images/bird_food.png" alt="Храни за птици и гризачи">
                         <h3>За птици</h3>
                         <p>Пълноценни и балансирани храни за всички видове домашни птици. Нашият асортимент включва смески от различни семена, гранулирани храни, витамини и минерални добавки за оптимално здраве на вашите пернати приятели.</p>
                     </div>
